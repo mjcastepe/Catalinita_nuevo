@@ -75,7 +75,7 @@ No pierdas la oportunidad de jugar con Catalinita a "piedra, papel o tijera". A 
 Este programa es un poco más difícil de poner en marcha que los anteriores, pero no imposible.<br>
 Para agilizar la conversación con Catalinita, los textos que ella verbaliza han sido generados previamente.<br>
 Para que Catalinita pueda jugar contigo a "piedra, papel o tijera" tienes que hacer seis cosas:
-1) Descargar todos los ficheros de la carpeta [Catalinita_piedra_papel_o_tijera](https://ibm.box.com/s/lyglhzt661lullh2awv49qv9bt523z5f) a la raspberrypi.
+1) Descargar todos los ficheros de la carpeta [Catalinita_piedra_papel_o_tijera](https://ibm.ent.box.com/folder/79352418930) a la raspberrypi.
 2. Ubicar todos los ficheros descargados en el directorio donde ya estés ejecutando satisfactoriamente el programa _conversation.js_ del TJBot o _Catalinita\_lorito.js_. Posicionarse en ese directorio.
 3. Entrenar un modelo de Visual Recognition para enseñar a Catalinita a distinguir entre piedra, papel o tijera:<br>
 3.1. Asegurar que la credencial del servicio Visual Recognition de Watson está correctamente introducida en el fichero _config.js_.<br>
