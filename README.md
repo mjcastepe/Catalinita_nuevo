@@ -47,7 +47,7 @@ Catalinita se ha aprendido las tablas de multiplicar de la 0 a la 20. Te las pue
 
 ¡No dejes de ver el vídeo para conocerla en acción!
 
-[![Catalinita](./Catalinita_tablas_de_multiplicar_pelicula.png)](https://ibm.box.com/s/nkxo56m83rgzx36fkxftbrcqn55jp0lq)
+[![Catalinita](./Catalinita_tablas_de_multiplicar_pelicula.png)](https://youtu.be/Bt_0hJaireo)
 
 #### Poner en marcha el programa _Catalinita\_tablas\_de\_multiplicar.js_
 Si quieres que Catalinita te ayude a aprenderte las tablas de multiplicar, sólo tienes que hacer tres cosas:
@@ -69,7 +69,7 @@ No pierdas la oportunidad de jugar con Catalinita a "piedra, papel o tijera". A 
 
 ¡Mira el vídeo y verás cómo se enfada cuando pierde!
 
-[![Catalinita](./Catalinita_piedra_papel_o_tijera_pelicula.png)](xxxx)
+[![Catalinita](./Catalinita_piedra_papel_o_tijera_pelicula.png)](https://youtu.be/ntjYxE4nAJ0)
 
 #### Poner en marcha el programa _Catalinita\_piedra\_papel\_o\_tijera.js_
 Este programa es un poco más difícil de poner en marcha que los anteriores, pero no imposible.<br>
@@ -219,4 +219,5 @@ Este chatbot usa slots para dejar en variables los valores de las entidades dete
 _HipotenochaBot_ es un valioso ejemplo del uso de SpEL expressions para manejar variables, arrays, añadir elementos, filtrar, buscar...<br>
 Contiene además muchas _chit chat intents_ para hacer la conversación más humana.<br>
 Introduce el concepto _confidence _ en los criterios de los diálogos para que sólo se entre en ellos si el grado de confianza de la intención detectada es mayor del 40%.<br>
+
 
