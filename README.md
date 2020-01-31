@@ -159,3 +159,64 @@ Error: pigpio error -1 in gpioInitialise<br>
 cierra todas las ventanas del navegador que tengas abiertas.<br>
 Debes tener la precaución de cerrar todas las ventanas de las tiradas, cada vez que invoques el programa.
 
+## Catalinita te ayuda con las matemáticas
+Catalinita ha visitado a su amiga Hipotenocha en [ESTENMÁTICAS](http://nueva.estenmaticas.es/) y ha diseñado un chatbot para guiarte por todas sus posibilidades.<br>
+Prueba [HipotenochaBot](https://assistant-chat-us-south.watsonplatform.net/web/public/d7639ece-5e29-490c-b304-ecc589e97933) o construye tu propio _HipotenochaBot_ siguiendo las instrucciones siguientes.
+
+#### Poner en marcha tu propio _HipotenochaBot_
+Para construir tu propio _HipotenochaBot_ tienes que hacer nueve cosas:
+1. Descarga el json [Catalinita_HipotenochaBot.json](./Catalinita_HipotenochaBot.json) en tu PC.
+2. Abre tu _panel de control o dashboard_ en [IBM Cloud](https://cloud.ibm.com), selecciona tu servicio _Watson assistant_ y lánzalo.
+3. En los iconos de la izquierda, pulsa en el dibujito de _skills_.
+4. Pincha en el botón _Create skill_ (¡OJO! si tienes ya cinco skills creados tendrás que borrar alguno).
+5. Selecciona el tipo _Dialog skill_ (estará seleccionado por defecto).
+6. Haz click en el botón _Next_.
+7. Busca la opción _Import skill_ y pulsa sobre ella.
+8. Pincha en el botón _Choose JSON File_, localiza el fichero json que descargaste en el paso 1 y haz doble click sobre él para seleccionarlo y cerrar la ventana.
+9. Pulsa el botón _Import_.<br>
+Después de un ratín, aparecerá entre tus skills, uno llamado _HipotenochaBot_.
+
+#### Usar el chatbot _HipotenochaBot_
+Nada más arrancar _HipotenochaBot_, ésta te saludará y se pondrá a tu servicio:
+1. Escribe: _¿Qué sabes hacer?_.
+2. Ella te mostrará una explicación de sus habilidades y te ofrecerá ayuda más detallada.
+3. Escribe: _ok_.
+4. Ella te enseñará todas las categorías que maneja y las palabras clave que puedes usar para buscar dentro de cada una de ellas. (Realmente puedes usar más porque hay muchos sinónimos definidos.)
+5. Escribe: _me gustaría ver explicaciones de geometría para la ESO, por favor_.
+6. Ella te ofrecerá las 15 URLs que cumplen el criterio _ESO geometría explicación_. (Son vídeos y paisajes de aprendizaje.)
+7. Escribe: _ejemplos de recuperaciones de algebra de tercero de matemáticas aplicadas_.
+8. Ella te dará todas las características de la única URLs que cumple el perfil _3º matemáticas aplicadas álgebra recuperación_. 
+9. Escribe: _vídeos de la pregunta matemática de la aventura del saber_.
+10. Ella te dirigirá al enlace con los vídeos de divulgación matemática que durante tres temporadas estuvieron emitiéndose en el programa _La aventura del saber_ de _La 2 de RTVE_. 
+11. Escribe: _https://www.youtube.com/playlist?list=PLd2wVZS4p5o7cAWk1Kx8JmrFBkz29NZj4_.
+12. Ella te dirá todo lo que sabe sobre esa url. (¿Quieres saber cómo acabar con los piojos matemáticamente? ¡Esta es tu ruta!)
+13. Escribe: _Muchas gracias_.
+14. Ella te responderá con un mensaje agradable, :). 
+
+¡Ya no tienes excusa para no aprender matemáticas!
+
+#### Claves para entender el diseño de _HipotenochaBot_
+El algoritmo del diálogo de _HipotenochaBot_ está diseñado para realizar búsquedas por múltiples criterios entre los datos contenidos en una variable de tipo diccionario llamada _bluepages_.
+Sirva de ejemplo de elemento contenido en ese diccionario el siguiente bloque:<br>
+          {<br>
+            "rama": "matemáticas, matemáticas académicas",<br>
+            "ruta": "http://nueva.estenmaticas.es/videos-4o-eso-academicas",<br>
+            "etapa": "ESO, Bachillerato",<br>
+            "nivel": "4º",<br>
+            "video": "vídeo",<br>
+            "contenido": "explicación",<br>
+            "comentario": "En el siguiente link podrás encontrar los vídeos de explicaciones numerados de 4º de ESO matemáticas académicas. Ten en cuenta que el temario ESTENMÁITCAS se imparte habitualmente en el siguiente orden: Estadística, Probabilidad, Geometría, Números, Álgebra y Análisis. http://nueva.estenmaticas.es/videos-4o-eso-academicas",<br>
+            "area_de_conocimiento": "Estadística, Probabilidad, Geometría, Números, Álgebra, Análisis"<br>
+          }<br>
+<br>
+Ese diccionario está relleno con los datos de la hoja Excel [Catalinita_HipotenochaBot_hoja_base.xlsx](./Catalinita_HipotenochaBot_hoja_base.xlsx).<br>
+En esa hoja están las URLs objeto de búsqueda del chatbot. Las columnas son los distintos tipos de características por las que se puede buscar. En las filas de una columna concreta se pueden ver los valores claves que servirán para hacer las búsquedas de las URLs. <br>
+Cada columna es una entidad del chatbot, cuyos valores corresponden a las claves referenciadas en su columna de la hoja Excel. Los valores de las entidades pueden tener sinónimos creados, por ejemplo, "primero" es un sinónimo de "1º".<br>
+<br>
+Dicho esto, encontrar la URL que cumple un determinado criterio, por ejemplo, que sea _de vídeos de explicaciones de cuarto de la ESO_, es lo mismo que encontrar bajo la columna _ruta_ de la hoja Excel la fila que contiene en la columna _etapa_ la clave "ESO", y además, en la columna _nivel_ la clave "4º", y además, en la columna _contenido_ la clave "explicación", y además, en la columna _video_ la clave "vídeo". Trasladándolo al chatbot, el objetivo sería encontrar el elemento del diccionario que cumpla que etapa=ESO y nivel=4º y contenido=explicación y video=vídeo.<br>
+<br>
+Este chatbot usa slots para dejar en variables los valores de las entidades detectadas en la conversación, pero no obliga a que estén rellenas.<br>
+_HipotenochaBot_ es un valioso ejemplo del uso de SpEL expressions para manejar variables, arrays, añadir elementos, filtrar, buscar...<br>
+Contiene además muchas _chit chat intents_ para hacer la conversación más humana.<br>
+Introduce el concepto _confidence _ en los criterios de los diálogos para que sólo se entre en ellos si el grado de confianza de la intención detectada es mayor del 40%.<br>
+
