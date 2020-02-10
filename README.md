@@ -129,7 +129,7 @@ _curl -X DELETE -u "apikey:xxx" "https://gateway.watsonplatform.net/visual-recog
 #### Problemas comunes al usar el programa _Catalinita\_piedra\_papel\_o\_tijera.js_
 Si tienes problemas, échale un ojo a los siguientes puntos:
 1. Si dudas de las imágenes que capta tu TJBot, puedes ver las capturas en el directorio /tmp de tu raspberrypi.
-2. Si ves que el modelo entrenado con las imágenes proporcionadas por Catalinita no se ajusta a tus necesidades, no dudes en incorporar en los ficheros _.zip_ más imágenes de cada tipo para enseñar a Catalinita a distinguir mejor entre piedra, papel o tijera.
+2. Si ves que el modelo entrenado con las imágenes proporcionadas por Catalinita no se ajusta a tus necesidades, no dudes en incorporar en los ficheros _.zip_ más imágenes de cada tipo para enseñar a Catalinita a distinguir mejor entre piedra, papel o tijera. También puedes probar a aumentar o disminuir el valor del score de la línea 99 de _Catalinita\_piedra\_papel\_o\_tijera.js_ (El score es el indicador de fiabilidad que el modelo asocia a la clasificación que ha dado a la foto evaluada.)
 3. Si al ejecutar _sudo node Catalinita\_piedra\_papel\_o\_tijera.js_ obtienes un error del siguiente estilo:<br>
 <<<br>
 verbose: TJBot initializing LED<br>
